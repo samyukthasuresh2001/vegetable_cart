@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart-market</title>
+    
+    <link rel="stylesheet" href="C:\Users\Samyu\OneDrive\Desktop\AchieversIt\JAVASCRIPT\cart-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="head">
+            <img src="https://www.instacart.com/assets/beetstrap/brand/2022/instacart-logo-color-6678cb82d531f8910d5ba270a11a7e9b56fc261371bda42ea7a5abeff3492e1c.svg" alt="">
+
+        </div>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+              <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
+                <i class="fa-solid fa-magnifying-glass"></i>
+                
+                <button class="btn btn-outline-success" type="submit">LogIn</button>
+                <button class="btn btn-outline-success" type="submit">SignIn</button>
+              </form>
+            </div>
+          </nav>
+    </header>
+    <div id="vegetables-cards"></div>
+
+
+    <script>
+      const data = {
+            vegetables: [
+                {
+                    id: 1,
+                    name: "carrots",
+                    image:
+                        "https://thumbs.dreamstime.com/b/carrot-isolated-white-background-38516892.jpg",
+                    description:
+                        "Carrots are a root vegetable that are rich in vitamin A.",
+                    price: 1.99,
+                },
+                {
+                    id: 2,
+                    name: "broccoli",
+                    image:
+                        "https://domf5oio6qrcr.cloudfront.net/medialibrary/5390/h1218g16207258089583.jpg",
+                    description:
+                        "Broccoli is a cruciferous vegetable that is rich in vitamin C and fiber.",
+                    price: 2.49,
+                },
+                {
+                    id: 3,
+                    name: "spinach",
+                    image:
+                        "https://cdn.shopify.com/s/files/1/0371/3368/0772/products/Spinach.jpg?v=1620713074",
+                    description:
+                        "Spinach is a leafy green vegetable that is rich in iron and vitamin K.",
+                    price: 1.99,
+                },
+                {
+                    id: 4,
+                    name: "peppers",
+                    image:
+                        "https://www.chilipeppermadness.com/wp-content/uploads/2019/08/Bell-Peppers.jpg",
+                    description:
+                        "Peppers are a sweet and colorful vegetable that are rich in vitamin C.",
+                    price: 3.49,
+                },
+                {
+                    id: 5,
+                    name: "potatoes",
+                    image:
+                        "https://www.jiomart.com/images/product/600x600/590000090/potato-1-kg-product-images-o590000090-p590000090-0-202207291750.jpg",
+                    description:
+                        "Potatoes are a starchy root vegetable that are a good source of carbohydrates.",
+                    price: 1.49,
+                },
+                {
+                    id: 6,
+                    name: "cucumbers",
+                    image:
+                        "https://cdn.shopify.com/s/files/1/0088/9896/9685/products/Cucumber_Green-Edited.jpg?v=1569230009",
+                    description:
+                        "Cucumbers are a refreshing and hydrating vegetable that are low in calories.",
+                    price: 0.99,
+                },
+                {
+                    id: 7,
+                    name: "lettuce",
+                    image:
+                        "https://media.newyorker.com/photos/5b6b08d3a676470b4ea9b91f/1:1/w_1748,h_1748,c_limit/Rosner-Lettuce.jpg",
+                    description:
+                        "Lettuce is a leafy green vegetable that is a good source of vitamins A and K.",
+                    price: 1.49,
+                },
+                {
+                    id: 8,
+                    name: "onions",
+                    image:
+                        "https://cdnprod.mafretailproxy.com/sys-master-root/h02/h61/12922534363166/16856_main.jpg_480Wx480H",
+                    description:
+                        "Onions are a pungent and flavorful vegetable that are a good source of antioxidants.",
+                    price: 0.99,
+                },
+                {
+                    id: 9,
+                    name: "cauliflower",
+                    image:
+                        "https://thumbs.dreamstime.com/b/white-cauliflower-5199363.jpg",
+                    description:
+                        "Cauliflower is a cruciferous vegetable that is low in calories and high in fiber.",
+                    price: 2.99,
+                },
+                {
+                    id: 10,
+                    name: "zucchini",
+                    image:
+                        "https://i0.wp.com/www.parajorganics.com/wp-content/uploads/2019/12/fresh-zucchini-500x500-1.jpg?fit=500%2C500&ssl=1",
+                    description:
+                        "Zucchini is a versatile and nutritious vegetable that is low in calories and high in vitamin C.",
+                    price: 1.99,
+                },
+                {
+                    id: 11,
+                    name: "asparagus",
+                    image:
+                        "https://smartyield.in/wp-content/uploads/2020/11/asparagus-indian.jpg",
+                    description:
+                        "Asparagus is a delicious and nutritious veg that is high in fiber & vitamins A & C.",
+                    price: 3.99,
+                },
+                {
+                    id: 12,
+                    name: "radishes",
+                    image:
+                        "https://m.media-amazon.com/images/I/61ubMwLyPcL._SL1000_.jpg",
+                    description:
+                        "Radishes are a crisp and refreshing vegetable that are a good source of vitamin C.",
+                    price: 0.99,
+                },
+                {
+                    id: 13,
+                    name: "sweet potatoes",
+                    image:
+                        "https://c.ndtvimg.com/2018-10/rn4qsd9_sweet-potatoes-_625x300_10_October_18.jpg",
+                    description:
+                        "Sweet potatoes are a nutrient-dense root vegetable that are high in vitamin A and fiber.",
+                    price: 2.49,
+                },
+                {
+                    id: 14,
+                    name: "eggplant",
+                    image:
+                        "https://5.imimg.com/data5/SELLER/Default/2020/9/QI/LI/VN/106270270/eggplant-500x500.jpg",
+                    description:
+                        "Eggplant is a versatile and flavorful vegetable that is low in calories and high in fiber.",
+                    price: 2.99,
+                },
+                {
+                    id: 15,
+                    name: "celery",
+                    image:
+                        "https://cdn.shopify.com/s/files/1/0088/9896/9685/products/IMG_7180-Edited.jpg?v=1578465746",
+                    description:
+                        "Celery is a crunchy and hydrating vegetable that is low in calories and high in fiber.",
+                    price: 0.99,
+                },
+                {
+                    id: 16,
+                    name: "green beans",
+                    image:
+                        "https://cdn-prod.medicalnewstoday.com/content/images/articles/285/285753/beans.jpg",
+                    description:
+                        "Green beans are a nutritious and delicious vegetable that are high in fiber & vit.s C & K.",
+                    price: 2.49,
+                },
+                {
+                    id: 17,
+                    name: "artichokes",
+                    image:
+                        "https://cdn.britannica.com/16/191616-050-6FF60400/artichoke-heads-sale.jpg",
+                    description:
+                        "Artichokes are a flavorful and nutritious vegetable that are high in fiber & antioxidants.",
+                    price: 4.99,
+                },
+                {
+                    id: 18,
+                    name: "beets",
+                    image:
+                        "https://thumbs.dreamstime.com/b/red-beets-beetroots-white-background-129418038.jpg",
+                    description:
+                        "Beets are a sweet and earthy root vegetable that are high in fiber and vitamins A and C.",
+                    price: 2.99,
+                },
+                {
+                    id: 19,
+                    name: "cabbage",
+                    image:
+                        "https://cdn.metro-online.pk/dashboard/prod-pic/LHE-01262/12620076-0-A.jpg?5",
+                    description:
+                        "Cabbage is a crunchy and nutritious vegetable that is low in calories and high in vit.s C & K.",
+                    price: 1.99,
+                },
+                {
+                    id: 20,
+                    name: "mushrooms",
+                    image:
+                        "https://static.toiimg.com/thumb/64260345.cms?width=573&height=430",
+                    description:
+                        "Mushrooms are a nutritious vegetable that are low in cals & high in fiber & protein.",
+                    price: 3.99,
+                },
+            ],
+        };
+
+        const vegetableCards = document.getElementById('vegetables-cards');
+
+        //define a function to create a card element for a vegetable
+
+        function createVegetableCard(vegetable) {
+            const card = document.createElement('div');
+            card.className = "card";
+
+            const img = document.createElement('img');
+            img.src = vegetable.image;
+            img.alt = vegetable.name;
+            card.appendChild(img);
+
+            const name = document.createElement("h2");
+            name.textContent = vegetable.name;
+            card.appendChild(name);
+
+
+            const description = document.createElement('p');
+            description.textContent = vegetable.description;
+            card.appendChild(description);
+
+            const price = document.createElement("div");
+            price.className = "price";
+            price.textContent = "$" + vegetable.price.toFixed(2);
+            card.appendChild(price);
+
+            const quantity = document.createElement("div");
+            quantity.className = "quantity";
+
+            const minusButton = document.createElement('button');
+            minusButton.textContent = "-";
+            minusButton.addEventListener('click', () => {
+                const input = quantity.querySelector("input");
+                let value = parseInt(input.value);
+                if (value >= 1) {
+                    value--;
+                    input.value = value;
+                }
+            })
+
+            minusButton.setAttribute("data-id", vegetable.id);
+            quantity.appendChild(minusButton);
+
+            const input = document.createElement('input');
+            input.type = "number";
+            input.value = 1;
+            quantity.appendChild(input);
+
+            const plusButton = document.createElement('button');
+            plusButton.textContent = "+";
+            plusButton.addEventListener('click', () => {
+                const input = quantity.querySelector("input");
+                let value = parseInt(input.value);
+                if (value >= 1) {
+                    value++;
+                    input.value = value;
+                }
+            })
+            plusButton.setAttribute("data-id", vegetable.id);
+            quantity.appendChild(plusButton);
+
+            card.appendChild(quantity);
+
+
+            const addButton = document.createElement('button');
+            addButton.textContent = "Add to Cart";
+            addButton.addEventListener('click', () => {
+                const input = quantity.querySelector('input');
+                let value = parseInt(input.value);
+                console.log(`Added ${value} ${vegetable.name} to cart.`);
+            })
+
+            addButton.setAttribute('data-id', vegetable.id)
+            card.appendChild(addButton);
+
+            return card;
+
+
+        }
+
+
+        //Define  function to fetch the vegetables data from API
+
+        function fetchVegetables(vegetables) {
+
+            for (const vegetable of vegetables) {
+
+                const card = createVegetableCard(vegetable);
+                vegetableCards.appendChild(card);
+            }
+
+
+
+        }
+
+        fetchVegetables(data.vegetables);
+
+
+
+    </script>
+</body>
+</html>
