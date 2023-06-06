@@ -1,0 +1,66 @@
+/* img{
+    padding: 40px;
+    margin: 20px;
+
+} */
+header{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    background-color: rgb(52, 188, 122);
+    padding: 30px;
+    margin: 10px;
+    
+}
+.card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    display: inline-block;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.card p {
+    font-size: 1.2rem;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.card .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.card .quantity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.card .quantity input {
+    width: 30px;
+    text-align: center;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
